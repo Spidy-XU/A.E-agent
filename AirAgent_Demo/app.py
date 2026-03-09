@@ -4,7 +4,25 @@ import os
 import sys
 import json
 import re
+import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
 from openai import OpenAI
+
+# ==========================================
+# 🚀 解决云端 Matplotlib 中文乱码补丁 (使用思源宋体)
+# ==========================================
+font_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'SourceHanSerifCN-Regular.ttf')
+
+if os.path.exists(font_path):
+    fm.fontManager.addfont(font_path)
+    prop = fm.FontProperties(fname=font_path)
+    plt.rcParams['font.family'] = prop.get_name()
+else:
+    # 如果找不到字体文件，在网页顶部给个黄色警告，方便排错
+    st.warning("⚠️ 未检测到 SourceHanSerifCN-Regular.ttf 文件，图表可能会出现中文乱码。请检查 GitHub 仓库是否已包含该文件。")
+
+plt.rcParams['axes.unicode_minus'] = False  # 解决负号显示问题
+# ==========================================
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
