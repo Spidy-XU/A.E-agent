@@ -296,10 +296,9 @@ def generate_pollution_radar(df: pd.DataFrame, region_name: str, level: str = "�
     # 9. 分拆标题：主标题（suptitle）+ 副标题（ax.set_title）
     plt.suptitle(f'【{region_name}】污染特征雷达图',
                  fontsize=18, fontweight='bold', color='#1A202C',
-                 y=0.98, fontfamily='Microsoft YaHei')
+                 y=0.98)
     ax.set_title(f'\n污染诊断：{pollution_type} | 分析级别：{level}',
-                 fontsize=13, color='#4A5568', pad=20,
-                 fontfamily='Microsoft YaHei')
+                 fontsize=13, color='#4A5568', pad=20)
 
     # 10. 图例
     legend = ax.legend(loc='upper right', bbox_to_anchor=(1.25, 1.15),
@@ -309,9 +308,9 @@ def generate_pollution_radar(df: pd.DataFrame, region_name: str, level: str = "�
     legend.get_frame().set_linewidth(1.5)
 
     # 11. 底部来源标注
-    fig.text(0.5, 0.02, '数据来源：环境监测数据 | 制图：XIANEMC1011',
+    fig.text(0.5, 0.02, '数据来源：环境监测数据 ',
              fontsize=10, color='#718096', style='italic',
-             ha='center', fontfamily='Microsoft YaHei')
+             ha='center')
 
     # 12. 外边框
     for spine in ax.spines.values():
