@@ -33,7 +33,7 @@ def check_and_create_folder(folder_path):
 # ==========================================
 def font():
     """初始化 matplotlib 全局中文字体设置"""
-    plt.rcParams['font.sans-serif'] = ['Microsoft YaHei', 'SimHei', 'Arial Unicode MS']
+    # plt.rcParams['font.sans-serif'] = ['Microsoft YaHei', 'SimHei', 'Arial Unicode MS']
     plt.rcParams['axes.unicode_minus'] = False
 
 # ==========================================
